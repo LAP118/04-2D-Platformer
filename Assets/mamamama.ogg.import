@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mamamama.ogg-f77cc5a42a13ff811574c9488a5503fe.oggstr"
+
+[deps]
+
+source_file="res://Assets/mamamama.ogg"
+dest_files=[ "res://.import/mamamama.ogg-f77cc5a42a13ff811574c9488a5503fe.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

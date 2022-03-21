@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Enemies/Enemies.gd" type="Script" id=1]
 [ext_resource path="res://Assets/ui_box.png" type="Texture" id=2]
@@ -12,8 +12,9 @@
 [ext_resource path="res://Assets/tile_tree.png" type="Texture" id=10]
 [ext_resource path="res://Enemies/Enemy2.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Enemies/Enemy1.tscn" type="PackedScene" id=12]
-[ext_resource path="res://UI/HUD.gd" type="Script" id=13]
+[ext_resource path="res://UI/UI.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Coins/Coin.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Assets/mamamama.ogg" type="AudioStream" id=15]
 
 [sub_resource type="NavigationPolygon" id=6]
 vertices = PoolVector2Array( 72, 320, 64, 384, 56, 384, 56, 320, 2232, 264, 2048, 264, 1912, 256, 1912, 200, 2424, 200, 1856, 256, 2048, 320, 1336, 320, 1336, 264, 2552, 200, 2552, 512, 2232, 320, 64, 512, 2104, 320, 64, 392, 1152, 320, 64, 328, 56, -56, 824, -56, 824, 8, 1720, 128, 1720, 72, 2424, 120, 1472, 128, 1016, 192, 1016, 136, 1144, 8, 1144, -56, 2552, -56, 2552, 120, 1472, 72, 1152, 264, 896, 192, 912, 192, 1856, 200, 1472, 80, 896, 136 )
@@ -214,34 +215,6 @@ drag_margin_right = 0.1
 drag_margin_bottom = 0.1
 script = ExtResource( 3 )
 
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="HUD" type="Control" parent="UI"]
-margin_right = 40.0
-margin_bottom = 40.0
-script = ExtResource( 13 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Background" type="ColorRect" parent="UI/HUD"]
-margin_right = 1024.0
-margin_bottom = 40.0
-color = Color( 0.0980392, 0.945098, 0.870588, 0.603922 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Score" type="Label" parent="UI/HUD"]
-margin_left = 10.0
-margin_right = 512.0
-margin_bottom = 40.0
-text = "Score"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Coins" type="Node2D" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource( 14 )]
@@ -252,3 +225,9 @@ position = Vector2( 1176, 216 )
 
 [node name="Coin3" parent="Coins" instance=ExtResource( 14 )]
 position = Vector2( 1824, 216 )
+
+[node name="UI" parent="." instance=ExtResource( 13 )]
+
+[node name="Music again" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+autoplay = true

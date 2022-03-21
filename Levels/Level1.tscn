@@ -15,8 +15,8 @@
 [ext_resource path="res://Levels/Door.gd" type="Script" id=13]
 [ext_resource path="res://Coins/Coin.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Enemies/Enemy1.tscn" type="PackedScene" id=15]
-[ext_resource path="res://UI/HUD.gd" type="Script" id=16]
-[ext_resource path="res://UI/Menu.gd" type="Script" id=17]
+[ext_resource path="res://UI/UI.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Assets/Musioc.ogg" type="AudioStream" id=17]
 
 [sub_resource type="NavigationPolygon" id=6]
 vertices = PoolVector2Array( 2232, 264, 2048, 264, 1912, 256, 1912, 200, 2424, 200, 1848, 392, 1728, 392, 760, 320, 1152, 320, 1848, 448, 2552, 512, 64, 512, 1728, 448, 1856, 256, 2048, 320, 1336, 320, 1336, 264, 2552, 200, 2232, 320, 2104, 320, 64, 392, 312, 392, 1728, 400, 1720, 128, 1720, 72, 2424, 120, 1472, 128, 1016, 192, 1016, 136, 704, 320, 312, 328, 56, -56, 824, -56, 824, 8, 1144, 8, 1144, -56, 2552, -56, 2552, 120, 1472, 72, 504, 192, 1856, 200, 1152, 264, 1472, 80, 704, 264, 384, 192, 64, 328, 384, 136, 896, 136, 896, 192, 504, 136, 760, 264, 912, 192 )
@@ -231,82 +231,10 @@ position = Vector2( 1296, 232 )
 [node name="Coin3" parent="Coins" instance=ExtResource( 14 )]
 position = Vector2( 1704, 48 )
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" parent="." instance=ExtResource( 16 )]
 
-[node name="HUD" type="Control" parent="UI"]
-margin_right = 40.0
-margin_bottom = 40.0
-script = ExtResource( 16 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Background" type="ColorRect" parent="UI/HUD"]
-margin_right = 1024.0
-margin_bottom = 40.0
-color = Color( 0, 0, 0, 0.498039 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Score" type="Label" parent="UI/HUD"]
-margin_left = 10.0
-margin_right = 512.0
-margin_bottom = 40.0
-text = "Score"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Menu" type="Control" parent="UI"]
-pause_mode = 2
-margin_right = 40.0
-margin_bottom = 40.0
-script = ExtResource( 17 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Background" type="ColorRect" parent="UI/Menu"]
-margin_right = 1024.0
-margin_bottom = 600.0
-color = Color( 0, 0, 0, 0.490196 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Save" type="Button" parent="UI/Menu"]
-margin_left = 462.0
-margin_top = 200.0
-margin_right = 562.0
-margin_bottom = 240.0
-text = "Save Game"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Load" type="Button" parent="UI/Menu"]
-margin_left = 462.0
-margin_top = 280.0
-margin_right = 562.0
-margin_bottom = 320.0
-text = "Load Game"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Quit" type="Button" parent="UI/Menu"]
-margin_left = 462.0
-margin_top = 400.0
-margin_right = 562.0
-margin_bottom = 440.0
-text = "Quit"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+autoplay = true
 
 [connection signal="body_entered" from="Door" to="Door" method="_on_Door_body_entered"]
-[connection signal="pressed" from="UI/Menu/Save" to="UI/Menu" method="_on_Save_pressed"]
-[connection signal="pressed" from="UI/Menu/Load" to="UI/Menu" method="_on_Load_pressed"]
-[connection signal="pressed" from="UI/Menu/Quit" to="UI/Menu" method="_on_Quit_pressed"]

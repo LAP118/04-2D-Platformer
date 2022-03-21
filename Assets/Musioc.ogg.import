@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Musioc.ogg-8789678723277ccfe9f6eae49a35d961.oggstr"
+
+[deps]
+
+source_file="res://Assets/Musioc.ogg"
+dest_files=[ "res://.import/Musioc.ogg-8789678723277ccfe9f6eae49a35d961.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
