@@ -94,7 +94,7 @@ func load_game():
 	
 		
 		
-	var save_data = parse_json(save_game.get_line())
+	save_data = parse_json(save_game.get_line())
 	save_game.close()
 	var _scene = get_tree().change_scene_to(levels[save_data["level"]-1])
 	call_deferred("load_data")
