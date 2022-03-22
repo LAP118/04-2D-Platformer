@@ -13,11 +13,9 @@ func _ready():
 	position = start_position[Global.save_data["level"]-1]
 
 func _physics_process(_delta):
-	if nav == null:
-		nav = get_node_or_null("/root/Game/Navigation2D")
-	elif player == null:
-		player = get_node_or_null("/root/Game/Player_Container/Player")
-	else:
+	nav = get_node_or_null("/root/Game/Navigation2D")
+	player = get_node_or_null("/root/Game/Player_Container/Player")
+	if nav != null and player != null:
 		var points = nav.get_simple_path(global_position, player.global_position, true)
 		if points.size() > 1:
 			var target = points[1] - global_position
